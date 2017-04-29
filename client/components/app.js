@@ -7,11 +7,6 @@ import { connect } from 'react-redux';
 
 
 const App = React.createClass({
-  // This is just a placeholder, replace with your code!
-
-  // React's prop types give us a nice way to validate all of the data that
-  // comes into our components via props. See
-  // https://facebook.github.io/react/docs/reusable-components.html#prop-validation.
 
   render() {
     console.log("Inside App", this)

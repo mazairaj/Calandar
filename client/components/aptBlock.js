@@ -2,13 +2,16 @@ import React from 'react';
 import { Card, CardImg, CardText, CardBlock,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
 import * as actions from '../actions/index';
-import EnterInfo from './modal'
-import {ModalContainer, ModalDialog} from 'react-modal-dialog';
 
 const AptBlock = React.createClass({
   handleClick(day, index) {
-    console.log('The link was clicked.', this.props.store.default.getState());
-    this.props.store.default.dispatch(actions.selectSlot( day, index))
+    var state = this.props.store.default.getState();
+    if (state.apts.cal[day][index].selected) {
+      this.props.store.default.dispatch(actions.selectSlot( day, index, "Available Slot", "No Attendee", "No Attendee"))
+    } else {
+      this.props.store.default.dispatch(actions.selectDay( day, index))
+      this.props.store.default.dispatch(actions.modalToggle())
+    }
   },
   // displayColor() {
   //   return this.state.clicked ? '#F08080' : '#90EE90'

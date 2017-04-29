@@ -1,17 +1,16 @@
 import React from 'react';
 import Day from './Day';
-var _ = require('underscore');
-import EnterInfo from './modal'
-const Calandar = React.createClass({
-  // This is just a placeholder, replace with your code!
+import EnterInfo from './modal';
+var _ = require('underscore')
 
-  // React's prop types give us a nice way to validate all of the data that
-  // comes into our components via props. See
-  // https://facebook.github.io/react/docs/reusable-components.html#prop-validation.
-  // propTypes: {
-  //   title: React.PropTypes.string,
-  //   onClick: React.PropTypes.func
-  // },
+const overlay = {
+  position: 'absolute',
+  width: 300,
+  height: 200,
+  backgroundColor: 'rgba(255, 255, 255, 0.75)'
+};
+const Calandar = React.createClass({
+
   componentDidMount() {
     console.log("I AM A CALANDAR BITCH!");
   },
@@ -25,10 +24,12 @@ const Calandar = React.createClass({
   },
   render() {
     const{store} = this.props
-    return (<div>
-      {store.default.getState().apts.modal ? <EnterInfo/> : null}
-      {this.populateDays()}</div>
-  )
+    return (
+      <div>
+      {this.populateDays()}
+      <EnterInfo store= {store} style ={overlay}/>
+      </div>
+    )
   }
 });
 

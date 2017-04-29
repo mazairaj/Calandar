@@ -15,16 +15,24 @@
 //   addText: addText
 // };
 
-const ADD_EVENT = 'ADD_EVENT';
 
-export function selectSlot(day, index) {
+export function selectSlot(day, index, evtTitle, name, phone) {
   return {
     type: "SELECT_SLOT",
+    day: day,
+    index: index,
+    evtTitle: evtTitle,
+    name:name,
+    phone, phone
+  }
+}
+export function selectDay(day, index){
+  return {
+    type: 'SELECT_DAY',
     day: day,
     index: index
   }
 }
-
 export function modalToggle() {
   return {
     type: "TOGGLE_MODAL"

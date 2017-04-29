@@ -17,7 +17,9 @@ const DEFAULT_STATE = {
     "Friday": [emptySlot, emptySlot, emptySlot,  emptySlot,
                   emptySlot, emptySlot, emptySlot, emptySlot, emptySlot]
   },
-  modal: false
+  modal: false,
+  day: null,
+  index: null
 }
 // Note: You may have more than one redconst DEFAUL_STATE = {eReducers. See
 // http://redux.js.org/docs/api/combineReducers.html and
@@ -35,10 +37,13 @@ const reducer = function(state, action) {
     var copy = Object.assign({}, state)
     var dayCopy = copy.cal[day]
     var selected = dayCopy[index].selected
-    dayCopy[index] = {name: "Available Slot", atendee: "No Attendee", phoneNum: "No Attendee", description: "", selected: !selected}
+    dayCopy[index] = {name: action.evtTitle, atendee: action.name, phoneNum: action.phone , description: "", selected: !selected}
     console.log(day)
     var newState = Object.assign({}, copy)
     return newState
+  }
+  case "SELECT_DAY": {
+    return Object.assign({}, state, {day: action.day, index: action.index})
   }
   case "TOGGLE_MODAL": {
     return Object.assign({}, state, {modal: !state.modal})
