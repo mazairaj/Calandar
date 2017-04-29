@@ -4,10 +4,9 @@ import {
 import reducer from './reducers/index'
 
 const applicationReducers = {
-  apts: reducer
+  apts: reducer //the only reducer due to simplicity of app
 }
 const rootReducer = combineReducers(applicationReducers);
 const store = createStore(rootReducer);
-console.log("IN CREATE STORE", store.getState());
 
 export default store;

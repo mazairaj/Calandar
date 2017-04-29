@@ -15,6 +15,7 @@ const Calandar = React.createClass({
     console.log("I AM A CALANDAR BITCH!");
   },
   populateDays(){
+    //Make the Days appear from Monday to Friday
     const {store} = this.props
     console.log("PROPS", this.props.store.default.getState());
     return (<div style = {{width: '100%', height: '600px', border: '2px solid black',

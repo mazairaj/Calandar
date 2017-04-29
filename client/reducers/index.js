@@ -5,6 +5,10 @@ var Actions = require('../actions');
 
 var emptySlot = {name: "Available Slot", atendee: "No Attendee", phoneNum: "No Attendee", description: "", selected: false}
 const DEFAULT_STATE = {
+  //Default state inlcudes the contents of the calendar, the activity of the modal,
+  //and the selected day and index.
+  // Contents of Calendar include event title, attendee name and
+  //phoneNumber
   cal: {
     "Monday" : [emptySlot, emptySlot, emptySlot,  emptySlot,
                   emptySlot, emptySlot, emptySlot, emptySlot, emptySlot],
@@ -21,17 +25,15 @@ const DEFAULT_STATE = {
   day: null,
   index: null
 }
-// Note: You may have more than one redconst DEFAUL_STATE = {eReducers. See
-// http://redux.js.org/docs/api/combineReducers.html and
-// http://redux.js.org/docs/basics/Reducers.html for more info.
 
 const reducer = function(state, action) {
   if (typeof state === "undefined")
     return DEFAULT_STATE;
 
-  // This is just a placeholder, replace it with your code.
+//Switch case returned from type of action object
   switch (action.type) {
   case "SELECT_SLOT": {
+    //update contents of calendar event
     var day = action.day
     var index = action.index
     var copy = Object.assign({}, state)
@@ -43,9 +45,11 @@ const reducer = function(state, action) {
     return newState
   }
   case "SELECT_DAY": {
+    //Select day and index for reference in modal
     return Object.assign({}, state, {day: action.day, index: action.index})
   }
   case "TOGGLE_MODAL": {
+    //toggle modal state
     return Object.assign({}, state, {modal: !state.modal})
   }
   default:

@@ -15,7 +15,7 @@
 //   addText: addText
 // };
 
-
+//Called When a time slot is selected
 export function selectSlot(day, index, evtTitle, name, phone) {
   return {
     type: "SELECT_SLOT",
@@ -26,6 +26,7 @@ export function selectSlot(day, index, evtTitle, name, phone) {
     phone, phone
   }
 }
+//Used to change the redux state of the currently selected time slot
 export function selectDay(day, index){
   return {
     type: 'SELECT_DAY',
@@ -33,6 +34,7 @@ export function selectDay(day, index){
     index: index
   }
 }
+//Toggles the activity of the modal by toggling the redux state
 export function modalToggle() {
   return {
     type: "TOGGLE_MODAL"

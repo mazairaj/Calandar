@@ -2,16 +2,9 @@ var React = require('react');
 import AptBlock from './aptBlock';
 
 const Day = React.createClass({
-  // This is just a placeholder, replace with your code!
 
-  // React's prop types give us a nice way to validate all of the data that
-  // comes into our components via props. See
-  // https://facebook.github.io/react/docs/reusable-components.html#prop-validation.
-  // propTypes: {
-  //   title: React.PropTypes.string,
-  //   onClick: React.PropTypes.func
-  // },
   displayEvents() {
+    //Display Events for Day
     const {store, day } = this.props
     var state = store.default.getState().apts.cal[day]
     return <div>{state.map(function(evt, index){

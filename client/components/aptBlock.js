@@ -13,12 +13,10 @@ const AptBlock = React.createClass({
       this.props.store.default.dispatch(actions.modalToggle())
     }
   },
-  // displayColor() {
-  //   return this.state.clicked ? '#F08080' : '#90EE90'
-  // },
+
   render() {
     const { store , event , day, index} = this.props
-    var col = event.selected ? '#F08080' : '#90EE90'
+    var col = event.selected ? '#F08080' : '#90EE90' //Color = green if not selected and red if selected
     return (
       <div onClick={this.handleClick.bind(this, day, index)}>
         <Card block inverse style={{ backgroundColor: col, borderColor: '#333' }}>

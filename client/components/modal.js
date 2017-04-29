@@ -16,6 +16,7 @@ class EnterInfo extends React.Component {
     store.default.dispatch(actions.modalToggle())
   }
   onChange(evt){
+    //Updates the state from changin form field
     this.setState({[evt.target.name]: evt.target.value});
     console.log(this.state)
   }
@@ -25,11 +26,11 @@ class EnterInfo extends React.Component {
     var state = store.default.getState();
     var day = state.apts.day;
     var index = state.apts.index;
+    //Update Redux Calendar
     this.props.store.default.dispatch(actions.selectSlot( day, index, this.state.title, this.state.name, this.state.phoneNum))
     this.props.store.default.dispatch(actions.modalToggle())
   }
   render() {
-    console.log("MODAL", this.props)
     const {store} = this.props
     var state = store.default.getState()
     console.log(state.apts.modal)
